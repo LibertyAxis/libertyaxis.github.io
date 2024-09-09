@@ -208,7 +208,7 @@ var questions = [
         }
     },
     {
-        "question": "Reallocating Police Resources for Targeted Community Services like Substance Abuse Treatment Programs.?",
+        "question": "Reallocating Police Resources for Targeted Community Services like Substance Abuse Treatment Programs?",
         "points": {
             "yes": {
                 "x": -1,

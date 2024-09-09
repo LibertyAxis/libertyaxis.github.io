@@ -132,7 +132,7 @@
             yesButton.onclick = () => setLanguage('en');
             noButton.onclick = () => setLanguage('pt');
         }
-
+        var currentText;
         // Set the language and load the first question
         function setLanguage(language) {
             if (language === 'en') {
@@ -166,7 +166,7 @@
                 type: 'scatter',  // You can also choose other types, like 'scatter'
                 data: {
                     datasets: [{
-                        label: 'Your Point',
+                        label: 'Result',
                         data: [{
                             x: totalPoints.x,
                             y: totalPoints.y
@@ -192,7 +192,7 @@
                                     } else if (value === 18) {
                                 return '';
                             } else if (value === -18) {
-                                return 'Anarquist';
+                                return 'Anarchist';
                             }
                             return '';  // Return empty string for other ticks
                                 }
@@ -251,11 +251,11 @@
                                 callback: function (value, index, ticks) {
                                     // Custom names for specific positions
                                     if (value === 0) {
-                                        return 'Autoritary';
+                                        return 'Authority';
                                     } else if (value === 18) {
-                                return 'Facist';
+                                return 'Fascist';
                             } else if (value === -18) {
-                                return 'Comunist';
+                                return 'Communist';
                             };  // Return empty string for other ticks
                                 return ''}
                             },

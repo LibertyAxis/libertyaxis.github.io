@@ -208,7 +208,7 @@ var questionspt = [
     }
   },
   {
-    "question": "Realocando recursos policiais para serviços comunitários direcionados, como programas de tratamento de abuso de substâncias.?",
+    "question": "Realocando recursos policiais para serviços comunitários direcionados, como programas de tratamento de abuso de substâncias?",
     "points": {
       "yes": {
         "x": -1,
