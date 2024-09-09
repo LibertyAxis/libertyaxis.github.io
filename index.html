@@ -163,7 +163,7 @@
 
             const ctx = document.getElementById('resultChart').getContext('2d');
             new Chart(ctx, {
-                type: 'scatter',
+                type: 'scatter',  // You can also choose other types, like 'scatter'
                 data: {
                     datasets: [{
                         label: 'Your Point',
@@ -173,27 +173,103 @@
                         }],
                         backgroundColor: 'rgba(75, 192, 192, 1)',
                         borderColor: 'rgba(75, 192, 192, 1)',
-                        pointRadius: 10
+
                     }]
                 },
                 options: {
+                    responsive: true,
                     scales: {
                         x: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'X Points'
+                            type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            position: 'bottom',
+                            min: -18,
+                            max: 18,
+                            ticks: {
+                                callback: function (value, index, ticks) {
+                                    // Custom names for specific positions
+                                    if (value === 0) {
+                                        return 'Freedom';
+                                    } else if (value === 18) {
+                                return '';
+                            } else if (value === -18) {
+                                return 'Anarquist';
                             }
+                            return '';  // Return empty string for other ticks
+                                }
+                            },
+                            grid: {
+                                color: function (context) {
+                                    return context.tick.value === 0 ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.1)';  // Highlight the 0 line
+                                },
+                                lineWidth: function (context) {
+                                    return context.tick.value === 0 ? 2 : 1;  // Thicker line at 0
+                                }
+                            }
+
                         },
                         y: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: 'Y Points'
+                            type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            position: 'right',
+
+                            min: -27,
+                            max: 35,
+                            ticks: {
+                                callback: function (value, index, ticks) {
+                                    // Custom names for specific positions
+                                    if (value === 0) {
+                                        return 'Right';
+                                    } return ''}
+                            }
+                        },
+                        y2: {
+                            type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            position: 'left',
+                            min: -27,
+                            max: 35,
+                            ticks: {
+                                callback: function (value, index, ticks) {
+                                    // Custom names for specific positions
+                                    if (value === 0) {
+                                        return 'Left';
+                                    } return ''}
+                            },
+                            grid: {
+                                color: function (context) {
+                                    return context.tick.value === 0 ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.1)';  // Highlight the 0 line
+                                },
+                                lineWidth: function (context) {
+                                    return context.tick.value === 0 ? 2 : 1;  // Thicker line at 0
+                                }
+                            }
+                        },
+                        x2: {
+                            type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                            position: 'top',
+                            min: -18,
+                            max: 18,
+                            ticks: {
+                                callback: function (value, index, ticks) {
+                                    // Custom names for specific positions
+                                    if (value === 0) {
+                                        return 'Autoritary';
+                                    } else if (value === 18) {
+                                return 'Facist';
+                            } else if (value === -18) {
+                                return 'Comunist';
+                            };  // Return empty string for other ticks
+                                return ''}
+                            },
+                            grid: {
+                                color: function (context) {
+                                    return context.tick.value === 0 ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0.1)';  // Highlight the 0 line
+                                },
+                                lineWidth: function (context) {
+                                    return context.tick.value === 0 ? 2 : 1;  // Thicker line at 0
+                                }
                             }
                         }
                     }
-                }
+                },
             });
         }
 
